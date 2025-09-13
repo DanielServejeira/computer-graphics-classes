@@ -1,0 +1,52 @@
+object Form1: TForm1
+  Left = 1029
+  Height = 323
+  Top = 245
+  Width = 430
+  Caption = 'Form1'
+  ClientHeight = 0
+  ClientWidth = 0
+  Menu = MainMenu1
+  LCLVersion = '3.8.0.0'
+  object Image1: TImage
+    Left = 88
+    Height = 232
+    Top = 32
+    Width = 252
+    OnMouseDown = Image1MouseDown
+    OnMouseMove = Image1MouseMove
+    OnMouseUp = Image1MouseUp
+  end
+  object XLabel: TLabel
+    Left = 88
+    Height = 15
+    Top = 272
+    Width = 10
+    Caption = 'X:'
+  end
+  object YLabel: TLabel
+    Left = 168
+    Height = 15
+    Top = 272
+    Width = 10
+    Caption = 'Y:'
+  end
+  object MainMenu1: TMainMenu
+    Left = 376
+    Top = 32
+    object MenuItem1: TMenuItem
+      Caption = 'Arquivo'
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Operações'
+      object MenuDrawPixel: TMenuItem
+        Caption = 'Desenhar Pixel'
+        OnClick = MenuDrawPixelClick
+      end
+      object MenuDrawLine: TMenuItem
+        Caption = 'Desenhar Linha'
+        OnClick = MenuDrawLineClick
+      end
+    end
+  end
+end
