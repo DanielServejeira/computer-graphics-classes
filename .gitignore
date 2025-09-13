@@ -1,0 +1,83 @@
+# Pascal/Lazarus .gitignore
+
+# Compiled Object Files
+*.ppu
+*.o
+*.or
+*.a
+*.so
+*.dll
+*.dylib
+
+# Compiled Executables
+*.exe
+*.app
+
+# Lazarus IDE Files
+*.lps
+*.bak
+*.compiled
+*.local
+*.tmp
+*.~*
+
+# Free Pascal Compiler Files
+*.cfg
+*.fpc.cfg
+
+# Delphi/Pascal Specific
+*.dcu
+*.dcp
+*.dcpil
+*.dof
+*.dsk
+*.identcache
+*.local
+*.tgs
+*.tgw
+*.drc
+
+# Resource Files (compiled)
+*.res
+*.rsj
+
+# Backup Files
+*~
+*.bak
+*.orig
+*.backup
+
+# Build Output Directories
+/lib/
+/backup/
+/bin/
+/obj/
+__history/
+__recovery/
+
+# Project Specific (Lazarus)
+*.lpi.bak
+*.lpr.bak
+*.pas.bak
+
+# Debug Information
+*.dbg
+*.gdb
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE Specific
+.vscode/
+.idea/
+
+# Temporary Files
+*.temp
+*.temporary
