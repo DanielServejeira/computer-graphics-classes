@@ -81,6 +81,13 @@ object Form1: TForm1
           OnClick = BresenhamClick
         end
       end
+      object MenuCircumference: TMenuItem
+        Caption = 'Desenhar Circunferência'
+        object MenuStandartEquationOfACircle: TMenuItem
+          Caption = 'Equação Reduzida da Circunferência'
+          OnClick = MenuStandartEquationOfACircleClick
+        end
+      end
     end
   end
 end

@@ -24,6 +24,8 @@ type
     MenuItem2: TMenuItem;
     MenuGeneralEquation: TMenuItem;
     Bresenham: TMenuItem;
+    MenuCircumference: TMenuItem;
+    MenuStandartEquationOfACircle: TMenuItem;
     MenuParametricEquation: TMenuItem;
     XLabel: TLabel;
     YLabel: TLabel;
@@ -37,6 +39,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure MenuDrawPixelClick(Sender: TObject);
     procedure MenuGeneralEquationClick(Sender: TObject);
+    procedure MenuStandartEquationOfACircleClick(Sender: TObject);
     procedure MenuParametricEquationClick(Sender: TObject);
   private
 
@@ -64,6 +67,11 @@ end;
 procedure TForm1.MenuGeneralEquationClick(Sender: TObject);
 begin
   operation := 2; //draw lines on the image using general equation
+end;
+
+procedure TForm1.MenuStandartEquationOfACircleClick(Sender: TObject);
+begin
+  operation := 5; //draw circumferences on the image using standart equation of a circle
 end;
 
 procedure TForm1.MenuParametricEquationClick(Sender: TObject);
@@ -113,8 +121,8 @@ procedure TForm1.Image1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 var
   inc, incx, incy: Integer;
-  xi, yi, dx, dy, d, dE, dNE, dR, dNR: Integer;
-  m, t: Double;
+  xi, yi, xc, yc, dx, dy, d, dE, dNE: Integer;
+  m, t, r, temp: Double;
 begin
   Image1.Canvas.Pen.Color := clRed;
 
@@ -240,6 +248,28 @@ begin
 
         yi := yi + incy;
         Image1.Canvas.Pixels[xi,yi] := clRed;
+      end;
+    end;
+  end;
+
+  if (operation = 5) then
+  begin
+    xc := x1;
+    yc := y1;
+    r := Sqrt(Sqr(X-xc) + Sqr(Y-yc));
+
+    for dx := -Round(r) to Round(r) do
+    begin
+      temp := r*r - dx*dx;
+      if temp < 0 then temp := 0;  // sqrt only for positive numbers
+      dy := Round(Sqrt(temp));
+
+      if (xc + dx >= 0) and (xc + dx < Image1.Width) then
+      begin
+        if (yc + dy >= 0) and (yc + dy < Image1.Height) then
+          Image1.Canvas.Pixels[xc + dx, yc + dy] := clRed;
+        if (yc - dy >= 0) and (yc - dy < Image1.Height) then
+          Image1.Canvas.Pixels[xc + dx, yc - dy] := clRed;
       end;
     end;
   end;
