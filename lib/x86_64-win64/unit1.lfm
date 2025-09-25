@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 1029
-  Height = 323
-  Top = 245
+  Left = 601
+  Height = 371
+  Top = 263
   Width = 430
   Caption = 'Form1'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 371
+  ClientWidth = 430
   Menu = MainMenu1
   LCLVersion = '3.8.0.0'
   object Image1: TImage
@@ -31,6 +31,29 @@ object Form1: TForm1
     Width = 10
     Caption = 'Y:'
   end
+  object LabelX: TLabel
+    Left = 104
+    Height = 15
+    Top = 272
+    Width = 29
+    Caption = 'None'
+  end
+  object LabelY: TLabel
+    Left = 184
+    Height = 15
+    Top = 272
+    Width = 29
+    Caption = 'None'
+  end
+  object ButtonCleanScreen: TButton
+    Left = 176
+    Height = 41
+    Top = 304
+    Width = 75
+    Caption = 'Limpar Tela'
+    TabOrder = 0
+    OnClick = ButtonCleanScreenClick
+  end
   object MainMenu1: TMainMenu
     Left = 376
     Top = 32
@@ -44,8 +67,19 @@ object Form1: TForm1
         OnClick = MenuDrawPixelClick
       end
       object MenuDrawLine: TMenuItem
-        Caption = 'Desenhar Linha'
-        OnClick = MenuDrawLineClick
+        Caption = 'Desenhar Linha Reta'
+        object MenuGeneralEquation: TMenuItem
+          Caption = 'Equação Geral'
+          OnClick = MenuGeneralEquationClick
+        end
+        object MenuParametricEquation: TMenuItem
+          Caption = 'Equação Paramétrica'
+          OnClick = MenuParametricEquationClick
+        end
+        object Bresenham: TMenuItem
+          Caption = 'Bresenham'
+          OnClick = BresenhamClick
+        end
       end
     end
   end
