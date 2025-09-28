@@ -20,16 +20,20 @@ type
     MainMenu1: TMainMenu;
     MenuDrawLine: TMenuItem;
     MenuDrawPixel: TMenuItem;
-    MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
-    MenuGeneralEquation: TMenuItem;
-    Bresenham: TMenuItem;
+    MenuCircleBresenham: TMenuItem;
+    MenuCircleIterativeRotation: TMenuItem;
+    MenuLineGeneralEquation: TMenuItem;
+    MenuLineBresenham: TMenuItem;
     MenuCircumference: TMenuItem;
-    MenuStandartEquationOfACircle: TMenuItem;
-    MenuParametricEquation: TMenuItem;
+    MenuCircleParametricEquation: TMenuItem;
+    MenuCircleStandartEquation: TMenuItem;
+    MenuLineParametricEquation: TMenuItem;
     XLabel: TLabel;
     YLabel: TLabel;
-    procedure BresenhamClick(Sender: TObject);
+    procedure MenuCircleBresenhamClick(Sender: TObject);
+    procedure MenuCircleIterativeRotationClick(Sender: TObject);
+    procedure MenuLineBresenhamClick(Sender: TObject);
     procedure ButtonCleanScreenClick(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -38,9 +42,10 @@ type
     procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure MenuDrawPixelClick(Sender: TObject);
-    procedure MenuGeneralEquationClick(Sender: TObject);
-    procedure MenuStandartEquationOfACircleClick(Sender: TObject);
-    procedure MenuParametricEquationClick(Sender: TObject);
+    procedure MenuLineGeneralEquationClick(Sender: TObject);
+    procedure MenuCircleParametricEquationClick(Sender: TObject);
+    procedure MenuCircleStandartEquationClick(Sender: TObject);
+    procedure MenuLineParametricEquationClick(Sender: TObject);
   private
 
   public
@@ -59,22 +64,39 @@ implementation
 
 { TForm1 }
 
+procedure PlotCirclePoints(Canvas: TCanvas; cx, cy, x, y: Integer; Cor: TColor);
+begin
+  Canvas.Pixels[cx + x, cy + y] := Cor;
+  Canvas.Pixels[cx - x, cy + y] := Cor;
+  Canvas.Pixels[cx + x, cy - y] := Cor;
+  Canvas.Pixels[cx - x, cy - y] := Cor;
+  Canvas.Pixels[cx + y, cy + x] := Cor;
+  Canvas.Pixels[cx - y, cy + x] := Cor;
+  Canvas.Pixels[cx + y, cy - x] := Cor;
+  Canvas.Pixels[cx - y, cy - x] := Cor;
+end;
+
 procedure TForm1.MenuDrawPixelClick(Sender: TObject);
 begin
   operation := 1; //draw pixels on the image
 end;
 
-procedure TForm1.MenuGeneralEquationClick(Sender: TObject);
+procedure TForm1.MenuLineGeneralEquationClick(Sender: TObject);
 begin
   operation := 2; //draw lines on the image using general equation
 end;
 
-procedure TForm1.MenuStandartEquationOfACircleClick(Sender: TObject);
+procedure TForm1.MenuCircleParametricEquationClick(Sender: TObject);
+begin
+  operation := 6; //draw circumferences on the image using parametric equation of a circle
+end;
+
+procedure TForm1.MenuCircleStandartEquationClick(Sender: TObject);
 begin
   operation := 5; //draw circumferences on the image using standart equation of a circle
 end;
 
-procedure TForm1.MenuParametricEquationClick(Sender: TObject);
+procedure TForm1.MenuLineParametricEquationClick(Sender: TObject);
 begin
   operation := 3; //draw lines on the image using parametric equation
 end;
@@ -103,9 +125,19 @@ begin
       Image1.Canvas.Pixels[xi,yi] := clblack; //clean screen with black
 end;
 
-procedure TForm1.BresenhamClick(Sender: TObject);
+procedure TForm1.MenuLineBresenhamClick(Sender: TObject);
 begin
-  operation := 4; //draw lines on the image using bresenham
+  operation := 4; //draw lines on the image using Bresenham
+end;
+
+procedure TForm1.MenuCircleIterativeRotationClick(Sender: TObject);
+begin
+  operation := 7; //draw circles on the image using iterative rotation
+end;
+
+procedure TForm1.MenuCircleBresenhamClick(Sender: TObject);
+begin
+  operation := 8; //draw circles on the image using MenuLineBresenham
 end;
 
 procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -121,8 +153,8 @@ procedure TForm1.Image1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 var
   inc, incx, incy: Integer;
-  xi, yi, xc, yc, dx, dy, d, dE, dNE: Integer;
-  m, t, r, temp: Double;
+  xi, yi, xc, yc, dx, dy, d, dE, dNE, i: Integer;
+  m, t, r, h, temp, a, sen1, cos1, xiD, yiD: Double;
 begin
   Image1.Canvas.Pen.Color := clRed;
 
@@ -192,7 +224,7 @@ begin
     end;
   end;
 
-  if (operation = 4) then
+  if (operation = 4) then //bresenham
   begin
     x2 := X;
     y2 := Y;
@@ -264,8 +296,79 @@ begin
       if temp < 0 then temp := 0;  // sqrt only for positive numbers
       dy := Round(Sqrt(temp));
 
-      Image1.Canvas.Pixels[x1+xi, y1+yi] := clRed;
-      Image1.Canvas.Pixels[x1+xi, y1-yi] := clRed;
+      if (xc+dx >= 0) and (xc + dx < Image1.Width) then
+      begin
+        if (yc+dy >= 0) and (yc+dy < Image1.Height) then
+          Image1.Canvas.Pixels[xc+dx, yc+dy] := clRed;
+        if (yc-dy >= 0) and (yc-dy < Image1.Height) then
+          Image1.Canvas.Pixels[xc+dx, yc-dy] := clRed;
+      end;
+    end;
+  end;
+
+  if(operation = 6) then
+  begin
+    xc := x1;
+    yc := y1;
+    r := Sqrt(Sqr(X-xc) + Sqr(Y-yc));
+
+    a := 0.0;
+    while a <= 2 * Pi do
+    begin
+      xi := Round(r * cos(a));
+      yi := Round(r * sin(a));
+      Image1.Canvas.Pixels[xc+xi, yc+yi] := clRed;
+
+      a := a + 0.01; // rad incrementation
+    end;
+  end;
+
+  if(operation = 7) then
+  begin
+    r := Sqrt(Sqr(X-xc) + Sqr(Y-yc));
+
+    xiD := r;
+    yiD := 0;
+    h := 1 - r;
+
+    sen1 := sin(57.2958);
+    cos1 := cos(57.2958);
+
+    for i := 1 to 360 do
+    begin
+      temp := xiD * cos1 - yiD * sen1;
+      yiD := xiD * sen1 + yiD * cos1;
+      xiD := temp;
+      xi := Round(xiD);
+      yi := Round(yiD);
+      Image1.Canvas.Pixels[xc+xi,yc+yi] := clRed;
+    end;
+  end;
+
+  if(operation = 8) then
+  begin
+    xc := x1;
+    yc := y1;
+
+    r := Round(Sqrt(Sqr(X - xc) + Sqr(Y - yc))); // raio inteiro
+    xi := 0;
+    yi := r;
+    h := 1 - r;
+
+    PlotCirclePoints(Image1.Canvas, xc, yc, xi, yi, clRed);
+
+    while xi < yi do
+    begin
+      if h < 0 then
+        h := h + 2*xi + 3
+      else
+      begin
+        h := h + 2*(xi - yi) + 5;
+        yi := yi - 1;
+      end;
+
+      xi := xi + 1;
+      PlotCirclePoints(Image1.Canvas, xc, yc, xi, yi, clRed);
     end;
   end;
 end;
