@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Menus,
-  StdCtrls;
+  StdCtrls, Unit2;
 
 type
 
@@ -20,6 +20,7 @@ type
     MainMenu1: TMainMenu;
     MenuDrawLine: TMenuItem;
     MenuDrawPixel: TMenuItem;
+    TransformationPanel: TMenuItem;
     MenuItem2: TMenuItem;
     MenuCircleBresenham: TMenuItem;
     MenuCircleIterativeRotation: TMenuItem;
@@ -46,6 +47,7 @@ type
     procedure MenuCircleParametricEquationClick(Sender: TObject);
     procedure MenuCircleStandartEquationClick(Sender: TObject);
     procedure MenuLineParametricEquationClick(Sender: TObject);
+    procedure TransformationPanelClick(Sender: TObject);
   private
 
   public
@@ -64,7 +66,7 @@ implementation
 
 { TForm1 }
 
-procedure PlotCirclePoints(Canvas: TCanvas; cx, cy, x, y: Integer; Cor: TColor);
+function PlotCirclePoints(Canvas: TCanvas; cx, cy, x, y: Integer; Cor: TColor):
 begin
   Canvas.Pixels[cx + x, cy + y] := Cor;
   Canvas.Pixels[cx - x, cy + y] := Cor;
@@ -99,6 +101,12 @@ end;
 procedure TForm1.MenuLineParametricEquationClick(Sender: TObject);
 begin
   operation := 3; //draw lines on the image using parametric equation
+end;
+
+procedure TForm1.TransformationPanelClick(Sender: TObject);
+begin
+  Form2 := TForm2.Create(Self);
+  Form2.Show;
 end;
 
 procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -350,9 +358,8 @@ begin
     xc := x1;
     yc := y1;
 
-    r := Round(Sqrt(Sqr(X - xc) + Sqr(Y - yc))); // raio inteiro
     xi := 0;
-    yi := r;
+    yi := Round(Sqrt(Sqr(X - xc) + Sqr(Y - yc)));
     h := 1 - r;
 
     PlotCirclePoints(Image1.Canvas, xc, yc, xi, yi, clRed);
@@ -363,7 +370,7 @@ begin
         h := h + 2*xi + 3
       else
       begin
-        h := h + 2*(xi - yi) + 5;
+        h := h + 2*(xi-yi) + 5;
         yi := yi - 1;
       end;
 
