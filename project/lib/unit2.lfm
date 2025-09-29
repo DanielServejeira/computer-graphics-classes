@@ -1,0 +1,367 @@
+object Form2: TForm2
+  Left = 608
+  Height = 420
+  Top = 310
+  Width = 630
+  Caption = 'Form2'
+  ClientHeight = 0
+  ClientWidth = 0
+  OnShow = FormShow
+  LCLVersion = '3.8.0.0'
+  object Image1: TImage
+    Left = 24
+    Height = 351
+    Top = 24
+    Width = 288
+  end
+  object Scale: TLabel
+    Left = 331
+    Height = 15
+    Top = 24
+    Width = 32
+    Caption = 'Escala'
+  end
+  object RadioButtonLocal: TRadioButton
+    Left = 331
+    Height = 19
+    Top = 40
+    Width = 46
+    Caption = 'Local'
+    Checked = True
+    TabOrder = 32
+    TabStop = True
+  end
+  object RadioButtonGlobal: TRadioButton
+    Left = 331
+    Height = 19
+    Top = 68
+    Width = 52
+    Caption = 'Global'
+    TabOrder = 0
+  end
+  object EditLocalX: TEdit
+    Left = 400
+    Height = 23
+    Top = 40
+    Width = 40
+    TabOrder = 1
+    Text = '2'
+  end
+  object EditLocalY: TEdit
+    Left = 448
+    Height = 23
+    Top = 40
+    Width = 40
+    TabOrder = 2
+    Text = '3'
+  end
+  object EditLocalZ: TEdit
+    Left = 496
+    Height = 23
+    Top = 40
+    Width = 40
+    TabOrder = 3
+    Text = '1'
+  end
+  object LabelScaleX: TLabel
+    Left = 416
+    Height = 15
+    Top = 24
+    Width = 7
+    Caption = 'X'
+  end
+  object LabelScaleY: TLabel
+    Left = 464
+    Height = 15
+    Top = 24
+    Width = 7
+    Caption = 'Y'
+  end
+  object LabelScaleZ: TLabel
+    Left = 512
+    Height = 15
+    Top = 24
+    Width = 7
+    Caption = 'Z'
+  end
+  object EditGlobal: TEdit
+    Left = 400
+    Height = 23
+    Top = 68
+    Width = 40
+    TabOrder = 4
+    Text = '2'
+  end
+  object LabelTranslation: TLabel
+    Left = 331
+    Height = 15
+    Top = 112
+    Width = 55
+    Caption = 'Translação'
+  end
+  object LabelTranslationX: TLabel
+    Left = 416
+    Height = 15
+    Top = 112
+    Width = 7
+    Caption = 'X'
+  end
+  object LabelTranslationY: TLabel
+    Left = 464
+    Height = 15
+    Top = 112
+    Width = 7
+    Caption = 'Y'
+  end
+  object LabelTranslationZ: TLabel
+    Left = 512
+    Height = 15
+    Top = 112
+    Width = 7
+    Caption = 'Z'
+  end
+  object RadioButtonTranslation: TRadioButton
+    Left = 331
+    Height = 17
+    Top = 136
+    Width = 18
+    TabOrder = 5
+  end
+  object EditTranslationX: TEdit
+    Left = 400
+    Height = 23
+    Top = 136
+    Width = 40
+    TabOrder = 6
+    Text = '0'
+  end
+  object EditTranslationY: TEdit
+    Left = 448
+    Height = 23
+    Top = 136
+    Width = 40
+    TabOrder = 7
+    Text = '-30'
+  end
+  object EditTranslationZ: TEdit
+    Left = 496
+    Height = 23
+    Top = 136
+    Width = 40
+    TabOrder = 8
+    Text = '10'
+  end
+  object LabelRotation: TLabel
+    Left = 331
+    Height = 15
+    Top = 176
+    Width = 43
+    Caption = 'Rotação'
+  end
+  object RadioButtonRotationOrigin: TRadioButton
+    Left = 331
+    Height = 19
+    Top = 196
+    Width = 58
+    Caption = 'Origem'
+    TabOrder = 9
+  end
+  object RadioButtonObjectCenter: TRadioButton
+    Left = 331
+    Height = 19
+    Top = 220
+    Width = 110
+    Caption = 'Centro do Objeto'
+    TabOrder = 10
+  end
+  object LabelAxis: TLabel
+    Left = 464
+    Height = 15
+    Top = 198
+    Width = 22
+    Caption = 'Eixo'
+  end
+  object LabelDegrees: TLabel
+    Left = 464
+    Height = 15
+    Top = 222
+    Width = 30
+    Caption = 'Graus'
+  end
+  object EditRotationAxis: TEdit
+    Left = 504
+    Height = 23
+    Top = 196
+    Width = 32
+    TabOrder = 11
+    Text = 'Y'
+  end
+  object EditRotationDegrees: TEdit
+    Left = 504
+    Height = 23
+    Top = 220
+    Width = 32
+    TabOrder = 12
+    Text = '5'
+  end
+  object LabelShearing: TLabel
+    Left = 331
+    Height = 15
+    Top = 256
+    Width = 46
+    Caption = 'Shearing'
+  end
+  object RadioButtonShearing: TRadioButton
+    Left = 331
+    Height = 17
+    Top = 272
+    Width = 18
+    TabOrder = 13
+  end
+  object Edit_a11: TEdit
+    Left = 352
+    Height = 23
+    Top = 272
+    Width = 32
+    TabOrder = 14
+    Text = '1'
+  end
+  object Edit_a12: TEdit
+    Left = 392
+    Height = 23
+    Top = 272
+    Width = 32
+    TabOrder = 15
+    Text = '-0.3'
+  end
+  object Edit_a13: TEdit
+    Left = 432
+    Height = 23
+    Top = 272
+    Width = 32
+    TabOrder = 16
+    Text = '0.9'
+  end
+  object Edit_a14: TEdit
+    Left = 472
+    Height = 23
+    Top = 272
+    Width = 32
+    TabOrder = 17
+    Text = '0'
+  end
+  object Edit_a21: TEdit
+    Left = 352
+    Height = 23
+    Top = 300
+    Width = 32
+    TabOrder = 18
+    Text = '1.3'
+  end
+  object Edit_a22: TEdit
+    Left = 392
+    Height = 23
+    Top = 300
+    Width = 32
+    TabOrder = 19
+    Text = '1'
+  end
+  object Edit_a23: TEdit
+    Left = 432
+    Height = 23
+    Top = 300
+    Width = 32
+    TabOrder = 20
+    Text = '-1.2'
+  end
+  object Edit_a24: TEdit
+    Left = 472
+    Height = 23
+    Top = 300
+    Width = 32
+    TabOrder = 21
+    Text = '0'
+  end
+  object Edit_a31: TEdit
+    Left = 352
+    Height = 23
+    Top = 328
+    Width = 32
+    TabOrder = 22
+    Text = '2'
+  end
+  object Edit_a32: TEdit
+    Left = 391
+    Height = 23
+    Top = 328
+    Width = 32
+    TabOrder = 23
+    Text = '2.1'
+  end
+  object Edit_a33: TEdit
+    Left = 432
+    Height = 23
+    Top = 328
+    Width = 32
+    TabOrder = 24
+    Text = '1'
+  end
+  object Edit_a34: TEdit
+    Left = 472
+    Height = 23
+    Top = 328
+    Width = 32
+    TabOrder = 25
+    Text = '0'
+  end
+  object Edit_a41: TEdit
+    Left = 352
+    Height = 23
+    Top = 356
+    Width = 32
+    TabOrder = 26
+    Text = '0'
+  end
+  object Edit_a42: TEdit
+    Left = 391
+    Height = 23
+    Top = 356
+    Width = 32
+    TabOrder = 27
+    Text = '0'
+  end
+  object Edit_a43: TEdit
+    Left = 432
+    Height = 23
+    Top = 356
+    Width = 32
+    TabOrder = 28
+    Text = '0'
+  end
+  object Edit_a44: TEdit
+    Left = 472
+    Height = 23
+    Top = 356
+    Width = 32
+    TabOrder = 29
+    Text = '1'
+  end
+  object ButtonExecute: TButton
+    Left = 536
+    Height = 67
+    Top = 288
+    Width = 75
+    Caption = 'Executar'
+    TabOrder = 30
+    OnClick = ButtonExecuteClick
+  end
+  object ButtonReset: TButton
+    Left = 136
+    Height = 25
+    Top = 384
+    Width = 75
+    Caption = 'Reset'
+    TabOrder = 31
+    OnClick = ButtonResetClick
+  end
+end

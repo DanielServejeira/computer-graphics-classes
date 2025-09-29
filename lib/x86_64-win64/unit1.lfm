@@ -4,8 +4,8 @@ object Form1: TForm1
   Top = 263
   Width = 430
   Caption = 'Form1'
-  ClientHeight = 371
-  ClientWidth = 430
+  ClientHeight = 0
+  ClientWidth = 0
   Menu = MainMenu1
   LCLVersion = '3.8.0.0'
   object Image1: TImage
@@ -57,6 +57,17 @@ object Form1: TForm1
   object MainMenu1: TMainMenu
     Left = 376
     Top = 32
+    object MenuArchive: TMenuItem
+      Caption = 'Arquivo'
+      object MenuOpen: TMenuItem
+        Caption = 'Abrir'
+        OnClick = MenuOpenClick
+      end
+      object MenuSave: TMenuItem
+        Caption = 'Salvar'
+        OnClick = MenuSaveClick
+      end
+    end
     object MenuItem2: TMenuItem
       Caption = 'Operações'
       object MenuDrawPixel: TMenuItem
@@ -102,5 +113,13 @@ object Form1: TForm1
       Caption = 'Painel de Transformação'
       OnClick = TransformationPanelClick
     end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 376
+    Top = 104
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 376
+    Top = 176
   end
 end
