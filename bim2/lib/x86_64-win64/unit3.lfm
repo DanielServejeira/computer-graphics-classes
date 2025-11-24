@@ -1,0 +1,36 @@
+object Form3: TForm3
+  Left = 703
+  Height = 448
+  Top = 243
+  Width = 390
+  Caption = 'Form3'
+  ClientHeight = 448
+  ClientWidth = 390
+  LCLVersion = '3.8.0.0'
+  object Image1: TImage
+    Left = 56
+    Height = 266
+    Top = 75
+    Width = 284
+    OnMouseDown = Image1MouseDown
+    OnMouseMove = Image1MouseMove
+    OnMouseUp = Image1MouseUp
+  end
+  object ButtonRun: TButton
+    Left = 160
+    Height = 54
+    Top = 363
+    Width = 78
+    Caption = 'Executar'
+    TabOrder = 0
+  end
+  object ButtonReset: TButton
+    Left = 160
+    Height = 22
+    Top = 24
+    Width = 78
+    Caption = 'Reset'
+    TabOrder = 1
+    OnClick = ButtonResetClick
+  end
+end

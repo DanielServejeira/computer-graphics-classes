@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 601
-  Height = 371
-  Top = 263
-  Width = 430
+  Left = 350
+  Height = 379
+  Top = 250
+  Width = 473
   Caption = 'Form1'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 379
+  ClientWidth = 473
   Menu = MainMenu1
   LCLVersion = '3.8.0.0'
   object Image1: TImage
@@ -55,8 +55,8 @@ object Form1: TForm1
     OnClick = ButtonCleanScreenClick
   end
   object MainMenu1: TMainMenu
-    Left = 376
-    Top = 32
+    Left = 404
+    Top = 60
     object MenuArchive: TMenuItem
       Caption = 'Arquivo'
       object MenuOpen: TMenuItem
@@ -71,7 +71,7 @@ object Form1: TForm1
     object MenuItem2: TMenuItem
       Caption = 'Operações'
       object MenuDrawPixel: TMenuItem
-        Caption = 'Desenhar Pixel'
+        Caption = 'Desenhar'
         OnClick = MenuDrawPixelClick
       end
       object MenuDrawLine: TMenuItem
@@ -108,18 +108,39 @@ object Form1: TForm1
           OnClick = MenuCircleBresenhamClick
         end
       end
+      object MenuFillPolygon: TMenuItem
+        Caption = 'Preencher Polígono'
+        object MenuColorInversion: TMenuItem
+          Caption = 'Inversão de Cores'
+          OnClick = MenuColorInversionClick
+        end
+        object MenuFloodFillV4: TMenuItem
+          Caption = 'Preenchimento por Inundação (V-4)'
+          OnClick = MenuFloodFillV4Click
+        end
+        object MenuFloodFillV8: TMenuItem
+          Caption = 'Preenchimento por Inundação (V-8)'
+          OnClick = MenuFloodFillV8Click
+        end
+      end
     end
     object TransformationPanel: TMenuItem
-      Caption = 'Painel de Transformação'
-      OnClick = TransformationPanelClick
+      Caption = 'Z-Buffer'
+      OnClick = ZBufferClick
+    end
+    object MenuRotationalSweep: TMenuItem
+      Caption = 'Varredura Rotacional'
+      OnClick = MenuRotationalSweepClick
     end
   end
   object OpenDialog1: TOpenDialog
-    Left = 376
-    Top = 104
+    FileName = 'C:\Users\Diego\Documents\GitHub\computer-graphics-classes\bim2'
+    InitialDir = 'C:\Users\Diego\Documents\GitHub\computer-graphics-classes\'
+    Left = 404
+    Top = 132
   end
   object SaveDialog1: TSaveDialog
-    Left = 376
-    Top = 176
+    Left = 404
+    Top = 204
   end
 end

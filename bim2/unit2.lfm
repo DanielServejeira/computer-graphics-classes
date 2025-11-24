@@ -1,11 +1,12 @@
 object Form2: TForm2
-  Left = 608
-  Height = 420
-  Top = 310
-  Width = 630
+  Left = 730
+  Height = 421
+  Top = 327
+  Width = 631
   Caption = 'Form2'
   ClientHeight = 0
   ClientWidth = 0
+  Menu = MainMenu1
   OnShow = FormShow
   LCLVersion = '3.8.0.0'
   object Image1: TImage
@@ -28,7 +29,7 @@ object Form2: TForm2
     Width = 46
     Caption = 'Local'
     Checked = True
-    TabOrder = 32
+    TabOrder = 0
     TabStop = True
   end
   object RadioButtonGlobal: TRadioButton
@@ -37,14 +38,14 @@ object Form2: TForm2
     Top = 68
     Width = 52
     Caption = 'Global'
-    TabOrder = 0
+    TabOrder = 1
   end
   object EditLocalX: TEdit
     Left = 400
     Height = 23
     Top = 40
     Width = 40
-    TabOrder = 1
+    TabOrder = 2
     Text = '2'
   end
   object EditLocalY: TEdit
@@ -52,7 +53,7 @@ object Form2: TForm2
     Height = 23
     Top = 40
     Width = 40
-    TabOrder = 2
+    TabOrder = 3
     Text = '3'
   end
   object EditLocalZ: TEdit
@@ -60,7 +61,7 @@ object Form2: TForm2
     Height = 23
     Top = 40
     Width = 40
-    TabOrder = 3
+    TabOrder = 4
     Text = '1'
   end
   object LabelScaleX: TLabel
@@ -89,7 +90,7 @@ object Form2: TForm2
     Height = 23
     Top = 68
     Width = 40
-    TabOrder = 4
+    TabOrder = 5
     Text = '2'
   end
   object LabelTranslation: TLabel
@@ -125,14 +126,14 @@ object Form2: TForm2
     Height = 17
     Top = 136
     Width = 18
-    TabOrder = 5
+    TabOrder = 6
   end
   object EditTranslationX: TEdit
     Left = 400
     Height = 23
     Top = 136
     Width = 40
-    TabOrder = 6
+    TabOrder = 7
     Text = '0'
   end
   object EditTranslationY: TEdit
@@ -140,7 +141,7 @@ object Form2: TForm2
     Height = 23
     Top = 136
     Width = 40
-    TabOrder = 7
+    TabOrder = 8
     Text = '-30'
   end
   object EditTranslationZ: TEdit
@@ -148,7 +149,7 @@ object Form2: TForm2
     Height = 23
     Top = 136
     Width = 40
-    TabOrder = 8
+    TabOrder = 9
     Text = '10'
   end
   object LabelRotation: TLabel
@@ -164,7 +165,7 @@ object Form2: TForm2
     Top = 196
     Width = 58
     Caption = 'Origem'
-    TabOrder = 9
+    TabOrder = 10
   end
   object RadioButtonObjectCenter: TRadioButton
     Left = 331
@@ -172,7 +173,7 @@ object Form2: TForm2
     Top = 220
     Width = 110
     Caption = 'Centro do Objeto'
-    TabOrder = 10
+    TabOrder = 11
   end
   object LabelAxis: TLabel
     Left = 464
@@ -193,7 +194,7 @@ object Form2: TForm2
     Height = 23
     Top = 196
     Width = 32
-    TabOrder = 11
+    TabOrder = 12
     Text = 'Y'
   end
   object EditRotationDegrees: TEdit
@@ -201,7 +202,7 @@ object Form2: TForm2
     Height = 23
     Top = 220
     Width = 32
-    TabOrder = 12
+    TabOrder = 13
     Text = '5'
   end
   object LabelShearing: TLabel
@@ -216,14 +217,14 @@ object Form2: TForm2
     Height = 17
     Top = 272
     Width = 18
-    TabOrder = 13
+    TabOrder = 14
   end
   object Edit_a11: TEdit
     Left = 352
     Height = 23
     Top = 272
     Width = 32
-    TabOrder = 14
+    TabOrder = 15
     Text = '1'
   end
   object Edit_a12: TEdit
@@ -231,7 +232,7 @@ object Form2: TForm2
     Height = 23
     Top = 272
     Width = 32
-    TabOrder = 15
+    TabOrder = 16
     Text = '-0.3'
   end
   object Edit_a13: TEdit
@@ -239,7 +240,7 @@ object Form2: TForm2
     Height = 23
     Top = 272
     Width = 32
-    TabOrder = 16
+    TabOrder = 17
     Text = '0.9'
   end
   object Edit_a14: TEdit
@@ -247,7 +248,7 @@ object Form2: TForm2
     Height = 23
     Top = 272
     Width = 32
-    TabOrder = 17
+    TabOrder = 18
     Text = '0'
   end
   object Edit_a21: TEdit
@@ -255,7 +256,7 @@ object Form2: TForm2
     Height = 23
     Top = 300
     Width = 32
-    TabOrder = 18
+    TabOrder = 19
     Text = '1.3'
   end
   object Edit_a22: TEdit
@@ -263,7 +264,7 @@ object Form2: TForm2
     Height = 23
     Top = 300
     Width = 32
-    TabOrder = 19
+    TabOrder = 20
     Text = '1'
   end
   object Edit_a23: TEdit
@@ -271,7 +272,7 @@ object Form2: TForm2
     Height = 23
     Top = 300
     Width = 32
-    TabOrder = 20
+    TabOrder = 21
     Text = '-1.2'
   end
   object Edit_a24: TEdit
@@ -279,7 +280,7 @@ object Form2: TForm2
     Height = 23
     Top = 300
     Width = 32
-    TabOrder = 21
+    TabOrder = 22
     Text = '0'
   end
   object Edit_a31: TEdit
@@ -287,7 +288,7 @@ object Form2: TForm2
     Height = 23
     Top = 328
     Width = 32
-    TabOrder = 22
+    TabOrder = 23
     Text = '2'
   end
   object Edit_a32: TEdit
@@ -295,7 +296,7 @@ object Form2: TForm2
     Height = 23
     Top = 328
     Width = 32
-    TabOrder = 23
+    TabOrder = 24
     Text = '2.1'
   end
   object Edit_a33: TEdit
@@ -303,7 +304,7 @@ object Form2: TForm2
     Height = 23
     Top = 328
     Width = 32
-    TabOrder = 24
+    TabOrder = 25
     Text = '1'
   end
   object Edit_a34: TEdit
@@ -311,7 +312,7 @@ object Form2: TForm2
     Height = 23
     Top = 328
     Width = 32
-    TabOrder = 25
+    TabOrder = 26
     Text = '0'
   end
   object Edit_a41: TEdit
@@ -319,7 +320,7 @@ object Form2: TForm2
     Height = 23
     Top = 356
     Width = 32
-    TabOrder = 26
+    TabOrder = 27
     Text = '0'
   end
   object Edit_a42: TEdit
@@ -327,7 +328,7 @@ object Form2: TForm2
     Height = 23
     Top = 356
     Width = 32
-    TabOrder = 27
+    TabOrder = 28
     Text = '0'
   end
   object Edit_a43: TEdit
@@ -335,7 +336,7 @@ object Form2: TForm2
     Height = 23
     Top = 356
     Width = 32
-    TabOrder = 28
+    TabOrder = 29
     Text = '0'
   end
   object Edit_a44: TEdit
@@ -343,7 +344,7 @@ object Form2: TForm2
     Height = 23
     Top = 356
     Width = 32
-    TabOrder = 29
+    TabOrder = 30
     Text = '1'
   end
   object ButtonExecute: TButton
@@ -352,7 +353,7 @@ object Form2: TForm2
     Top = 288
     Width = 75
     Caption = 'Executar'
-    TabOrder = 30
+    TabOrder = 31
     OnClick = ButtonExecuteClick
   end
   object ButtonReset: TButton
@@ -361,7 +362,35 @@ object Form2: TForm2
     Top = 384
     Width = 75
     Caption = 'Reset'
-    TabOrder = 31
+    TabOrder = 32
     OnClick = ButtonResetClick
+  end
+  object MainMenu1: TMainMenu
+    Left = 576
+    Top = 40
+    object MenuItem1: TMenuItem
+      Caption = 'Objetos'
+      object MenuObject1: TMenuItem
+        Caption = 'Objeto 1'
+        OnClick = MenuObject1Click
+      end
+      object MenuObject2: TMenuItem
+        Caption = 'Objeto 2'
+      end
+      object MenuObject3: TMenuItem
+        Caption = 'Objeto 3'
+      end
+      object MenuObject4: TMenuItem
+        Caption = 'Objeto 4'
+      end
+      object MenuObject5: TMenuItem
+        Caption = 'Objeto 5'
+        OnClick = MenuObject5Click
+      end
+      object MenuObject6: TMenuItem
+        Caption = 'Objeto 6'
+        OnClick = MenuObject6Click
+      end
+    end
   end
 end

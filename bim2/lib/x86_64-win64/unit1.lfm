@@ -1,0 +1,146 @@
+object Form1: TForm1
+  Left = 350
+  Height = 379
+  Top = 250
+  Width = 473
+  Caption = 'Form1'
+  ClientHeight = 379
+  ClientWidth = 473
+  Menu = MainMenu1
+  LCLVersion = '3.8.0.0'
+  object Image1: TImage
+    Left = 88
+    Height = 232
+    Top = 32
+    Width = 252
+    OnMouseDown = Image1MouseDown
+    OnMouseMove = Image1MouseMove
+    OnMouseUp = Image1MouseUp
+  end
+  object XLabel: TLabel
+    Left = 88
+    Height = 15
+    Top = 272
+    Width = 10
+    Caption = 'X:'
+  end
+  object YLabel: TLabel
+    Left = 168
+    Height = 15
+    Top = 272
+    Width = 10
+    Caption = 'Y:'
+  end
+  object LabelX: TLabel
+    Left = 104
+    Height = 15
+    Top = 272
+    Width = 29
+    Caption = 'None'
+  end
+  object LabelY: TLabel
+    Left = 184
+    Height = 15
+    Top = 272
+    Width = 29
+    Caption = 'None'
+  end
+  object ButtonCleanScreen: TButton
+    Left = 176
+    Height = 41
+    Top = 304
+    Width = 75
+    Caption = 'Limpar Tela'
+    TabOrder = 0
+    OnClick = ButtonCleanScreenClick
+  end
+  object MainMenu1: TMainMenu
+    Left = 404
+    Top = 60
+    object MenuArchive: TMenuItem
+      Caption = 'Arquivo'
+      object MenuOpen: TMenuItem
+        Caption = 'Abrir'
+        OnClick = MenuOpenClick
+      end
+      object MenuSave: TMenuItem
+        Caption = 'Salvar'
+        OnClick = MenuSaveClick
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Operações'
+      object MenuDrawPixel: TMenuItem
+        Caption = 'Desenhar'
+        OnClick = MenuDrawPixelClick
+      end
+      object MenuDrawLine: TMenuItem
+        Caption = 'Desenhar Linha Reta'
+        object MenuLineGeneralEquation: TMenuItem
+          Caption = 'Equação Geral'
+          OnClick = MenuLineGeneralEquationClick
+        end
+        object MenuLineParametricEquation: TMenuItem
+          Caption = 'Equação Paramétrica'
+          OnClick = MenuLineParametricEquationClick
+        end
+        object MenuLineBresenham: TMenuItem
+          Caption = 'Bresenham'
+          OnClick = MenuLineBresenhamClick
+        end
+      end
+      object MenuCircumference: TMenuItem
+        Caption = 'Desenhar Circunferência'
+        object MenuCircleStandartEquation: TMenuItem
+          Caption = 'Equação Reduzida'
+          OnClick = MenuCircleStandartEquationClick
+        end
+        object MenuCircleParametricEquation: TMenuItem
+          Caption = 'Equação Paramétrica'
+          OnClick = MenuCircleParametricEquationClick
+        end
+        object MenuCircleIterativeRotation: TMenuItem
+          Caption = 'Rotação Iterativa'
+          OnClick = MenuCircleIterativeRotationClick
+        end
+        object MenuCircleBresenham: TMenuItem
+          Caption = 'Bresenham'
+          OnClick = MenuCircleBresenhamClick
+        end
+      end
+      object MenuFillPolygon: TMenuItem
+        Caption = 'Preencher Polígono'
+        object MenuColorInversion: TMenuItem
+          Caption = 'Inversão de Cores'
+          OnClick = MenuColorInversionClick
+        end
+        object MenuFloodFillV4: TMenuItem
+          Caption = 'Preenchimento por Inundação (V-4)'
+          OnClick = MenuFloodFillV4Click
+        end
+        object MenuFloodFillV8: TMenuItem
+          Caption = 'Preenchimento por Inundação (V-8)'
+          OnClick = MenuFloodFillV8Click
+        end
+      end
+    end
+    object TransformationPanel: TMenuItem
+      Caption = 'Z-Buffer'
+      OnClick = ZBufferClick
+    end
+    object MenuRotationalSweep: TMenuItem
+      Caption = 'Varredura Rotacional'
+      OnClick = MenuRotationalSweepClick
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    FileName = 'C:\Users\Diego\Documents\GitHub\computer-graphics-classes\bim2'
+    InitialDir = 'C:\Users\Diego\Documents\GitHub\computer-graphics-classes\'
+    Left = 404
+    Top = 132
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 404
+    Top = 204
+  end
+end

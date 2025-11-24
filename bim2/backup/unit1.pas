@@ -25,6 +25,7 @@ type
     MenuColorInversion: TMenuItem;
     MenuFloodFillV4: TMenuItem;
     MenuFloodFillV8: TMenuItem;
+    MenuRotationalSweep: TMenuItem;
     MenuSave: TMenuItem;
     MenuOpen: TMenuItem;
     OpenDialog1: TOpenDialog;
@@ -61,8 +62,9 @@ type
     procedure MenuCircleStandartEquationClick(Sender: TObject);
     procedure MenuLineParametricEquationClick(Sender: TObject);
     procedure MenuOpenClick(Sender: TObject);
+    procedure MenuRotationalSweepClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
-    procedure TransformationPanelClick(Sender: TObject);
+    procedure ZBufferClick(Sender: TObject);
   private
     PolygonColor: TColor;
   public
@@ -154,12 +156,18 @@ begin
   if OpenDialog1.Execute then Image1.Picture.LoadFromFile(OpenDialog1.FileName);
 end;
 
+procedure TForm1.MenuRotationalSweepClick(Sender: TObject);
+begin
+  Form3 := TForm3.Create(Self);
+  Form3.Show;
+end;
+
 procedure TForm1.MenuSaveClick(Sender: TObject);
 begin
   if SaveDialog1.Execute then Image1.Picture.SaveToFile(SaveDialog1.Filename);
 end;
 
-procedure TForm1.TransformationPanelClick(Sender: TObject);
+procedure TForm1.ZBufferClick(Sender: TObject);
 begin
   Form2 := TForm2.Create(Self);
   Form2.Show;
@@ -241,6 +249,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   PolygonColor := clRed;
+  ShowMessage('Form1 iniciou');
 end;
 
 procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -357,7 +366,7 @@ begin
           d := d + dNE;
           yi := yi + incy;
         end;
-        
+
         xi := xi + incx;
         Image1.Canvas.Pixels[xi,yi] := clRed;
       end;
